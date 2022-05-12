@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:PomodoroPlatzi.ViewModels"
+             x:Class="PomodoroPlatzi.Views.HistoryPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:HistoryViewModel/>
+    </ContentPage.BindingContext>
+    
+    <CollectionView ItemsSource="{Binding Pomodoros}" Margin="15">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Label">
+                                <Setter Property="FontSize" Value="Large"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+                    <Label>Fecha</Label>
+                    <Label Text="{Binding Date}"/>
+                    <Label>Duración</Label>
+                    <Label Text="{Binding Elapse}"/>
+                    <BoxView WidthRequest="100" HeightRequest="1" Color="Black" Margin="0,0,0,15"/>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
